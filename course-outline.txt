@@ -1,12 +1,13 @@
 HTML
 CSS
+bootstrap/tailwind
 JAVASCRIPT
 GITHUB/GIT
 FIREBASE
 
 HACKATHON
 REACTJS
-BACKEND
+nodejs expressjs mongodb
 REACT NATIVE
 
 HACKATHON
