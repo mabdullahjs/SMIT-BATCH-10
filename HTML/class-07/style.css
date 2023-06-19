@@ -1,0 +1,29 @@
+/* .main-heading{
+    background-color: red;
+    color: white;
+
+} */
+
+h1{
+    background-color: rebeccapurple;
+    color: white;
+    text-align: center;
+}
+.orange{
+    background-color: orange;
+    padding: 10px;
+    border: 5px solid black;
+}
+#first-para{
+    background-color: black;
+    color: aliceblue;
+}
+
+.para-text{
+    color: red;
+    background-color: blue;
+}
+img{
+    display: block;
+    margin: 0 auto;
+}
