@@ -1,0 +1,30 @@
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
+/* h1 , h2 , h3{
+    background-color: red;
+} */
+/* .bg{
+    background-color: red;
+}
+.mt{
+    margin-top: 500px;
+} */
+.main-head {
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+ul li {
+    background-color: #00ffff;
+}
+
+h1~p {
+    background-color: rgb(0, 0, 0);
+    opacity: 1;
+    color: #000;
+}
