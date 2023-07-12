@@ -1,4 +1,0 @@
-git clone url
-git add .
-git commit -m"relavent message"
-git push origin main
