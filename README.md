@@ -4,15 +4,15 @@
 
 - [x] HTML
 - [x] CSS
-- [] bootstrap/tailwind
-- [] CSS HACKATHON
-- [] JAVASCRIPT
+- [ ] bootstrap/tailwind
+- [ ] CSS HACKATHON
+- [ ] JAVASCRIPT
 - [x] GITHUB/GIT
-- [] FIREBASE
-- []
-- [] JS HACKATHON
-- [] REACTJS
-- [] nodejs expressjs 
-- [] mongodb
-- [] REACT NATIVE
-- [] Final HACKATHON
+- [ ] FIREBASE
+- [ ]
+- [ ] JS HACKATHON
+- [ ] REACTJS
+- [ ] nodejs expressjs 
+- [ ] mongodb
+- [ ] REACT NATIVE
+- [ ] Final HACKATHON
