@@ -9,7 +9,6 @@
 - [ ] JAVASCRIPT
 - [x] GITHUB/GIT
 - [ ] FIREBASE
-- [ ]
 - [ ] JS HACKATHON
 - [ ] REACTJS
 - [ ] nodejs expressjs 
