@@ -7,11 +7,11 @@
 - [ ] bootstrap/tailwind
 - [ ] CSS HACKATHON
 - [ ] JAVASCRIPT
-- [x] GITHUB/GIT
+- [ ] GITHUB/GIT
 - [ ] FIREBASE
 - [ ] JS HACKATHON
 - [ ] REACTJS
-- [ ] nodejs expressjs 
+- [ ] nodejs expressjs
 - [ ] mongodb
 - [ ] REACT NATIVE
 - [ ] Final HACKATHON
