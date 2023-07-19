@@ -1,0 +1,36 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    border: 2px solid purple;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    grid-template-areas: "hdr hdr hdr hdr"
+                         "sb main main main"
+                         "sb main main main"
+                         "ft ft ft ft";
+
+} */
+/* .box{
+    border: 1px solid red;
+    margin: 20px;
+    padding: 10px;
+
+}
+#box-1{
+   
+    grid-area: hdr;
+}
+#box-2{
+    grid-area: sb;
+}
+#box-3{
+    grid-area: main;
+}
+
+#box-5{
+    grid-area: ft;
+} */
