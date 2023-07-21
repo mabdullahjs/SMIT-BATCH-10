@@ -1,0 +1,12 @@
+node js downlaod krna ha lts version
+Tailwind CSS IntelliSense extension install krni ha
+npx tailwindcss init || command chalani ha terminal ma
+tailwind.config.js ki file ma content ka undar "./dist/*.html"
+src ka undar input.css ki file bnani ha
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+dist ka undar ka index.html ki file bnainga
+npx tailwindcss -i ./src/input.css -o ./dist/style.css --watch || command chalani ha terminal ma
