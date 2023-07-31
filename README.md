@@ -4,7 +4,7 @@
 
 - [x] HTML
 - [x] CSS
-- [ ] bootstrap/tailwind
+- [x] bootstrap/tailwind
 - [ ] CSS HACKATHON
 - [ ] JAVASCRIPT
 - [ ] GITHUB/GIT
