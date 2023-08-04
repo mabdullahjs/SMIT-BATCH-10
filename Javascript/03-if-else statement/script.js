@@ -41,3 +41,4 @@ if (percentage >= 80) {
 else {
     console.log("Bhai tum hogaye ho fail.");
 }
+
