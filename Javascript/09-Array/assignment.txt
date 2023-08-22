@@ -1,0 +1,11 @@
+1- Create an initial array called studentNames with the following student names in this order: "Alice", "Bob", "Charlie", "David", "Eve".
+
+2- Insert the name "Frank" after "Charlie" in the studentNames array.
+
+3- Remove "David" from the studentNames array.
+
+4- Add "Grace" and "Helen" to the end of the studentNames array.
+
+5- Replace "Bob" with "John" in the studentNames array.
+
+6- Display the final studentNames array to the console.
