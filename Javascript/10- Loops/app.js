@@ -26,12 +26,12 @@
 
 
 
-const div = document.querySelector('div');
-const num = +prompt('enter a number for table.');
-for (let i = 1; i <= 10; i++) {
-    div.innerHTML += `${num} * ${i} = ${num * i} <br/>`;
-    // console.log(num + " * " + i + " = " + num * i);
-}
+// const div = document.querySelector('div');
+// const num = +prompt('enter a number for table.');
+// for (let i = 1; i <= 10; i++) {
+//     div.innerHTML += `${num} * ${i} = ${num * i} <br/>`;
+//     // console.log(num + " * " + i + " = " + num * i);
+// }
 
 
 
@@ -46,5 +46,40 @@ for (let i = 1; i <= 10; i++) {
 
 
 
+// 4 <= 4
+//14 >= 14
+// '8' == 8
+// 8 === '8'
+// console.log(8 === 8 && 7 < 8 && 4 > 8 || 8 > 7);
 
 
+// let fruits = ['apple', 'orange', 'grapes', 'watermelon', 'injeer'];
+// console.log(fruits.length);
+
+
+
+
+
+
+
+
+// const div = document.querySelector('div');
+// for (let i = 1; i <= 100; i++) {
+//     // console.log(`bhar wala loop ${i}`);
+//     div.innerHTML += `<br/>`;
+//     for (let j = 1; j <= 10; j++) {
+//         // console.log(`${i} * ${j} = ${i*j}`);
+//         div.innerHTML += `${i} * ${j} = ${i*j} <br/>`;
+//     }
+// }
+
+
+
+
+
+
+let i = 1;
+while (i <= 10) {
+    console.log(i);
+    i++
+}
