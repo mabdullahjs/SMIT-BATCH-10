@@ -78,8 +78,24 @@
 
 
 
-let i = 1;
-while (i <= 10) {
-    console.log(i);
-    i++
+// let i = 1;
+// while (i <= 10) {
+//     console.log(i);
+//     i++
+// }
+
+
+
+
+
+const fruit = 'orange'
+const fruits = ['banana', 'apple', 'orange', 'mosambi', 'papita', 'nashpati'];
+for (let i = 0; i < fruits.length; i++) {
+    if(fruits[i] === fruit){
+        console.log(`${fruit} is available`);
+        break
+    }
+    else{
+        console.log('orange is not available');
+    }
 }
