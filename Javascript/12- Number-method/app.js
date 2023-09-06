@@ -34,30 +34,30 @@
 
 
 // //toss
-// // const img = document.querySelector('img')
-// // const p = document.querySelector('p')
-// // function masjid(){
-// //     const randomNumber = Math.ceil(Math.random()*2);
-// //     console.log(randomNumber)
-// //     if(randomNumber === 1){
-// //         p.innerHTML = 'Hurrah! You won the toss';
-// //         img.src = './assets/masjid.jpeg'
-// //     }else{
-// //         p.innerHTML = 'Sorry! You Loss the toss';
-// //         img.src = './assets/chand.jpeg'
-// //     }
-// // }
-// // function chand(){
-// //     const randomNumber = Math.ceil(Math.random()*2);
-// //     console.log(randomNumber)
-// //     if(randomNumber === 1){
-// //         p.innerHTML = 'Sorry! You Loss the toss';
-// //         img.src = './assets/masjid.jpeg'
-// //     }else{
-// //         p.innerHTML = 'Hurrah! You won the toss';
-// //         img.src = './assets/chand.jpeg'
-// //     }
-// // }
+const img = document.querySelector('img')
+const p = document.querySelector('p')
+function masjid(){
+    const randomNumber = Math.ceil(Math.random()*2);
+    console.log(randomNumber)
+    if(randomNumber === 1){
+        p.innerHTML = 'Hurrah! You won the toss';
+        img.src = './assets/masjid.jpeg'
+    }else{
+        p.innerHTML = 'Sorry! You Loss the toss';
+        img.src = './assets/chand.jpeg'
+    }
+}
+function chand(){
+    const randomNumber = Math.ceil(Math.random()*2);
+    console.log(randomNumber)
+    if(randomNumber === 1){
+        p.innerHTML = 'Sorry! You Loss the toss';
+        img.src = './assets/masjid.jpeg'
+    }else{
+        p.innerHTML = 'Hurrah! You won the toss';
+        img.src = './assets/chand.jpeg'
+    }
+}
 
 
 
@@ -143,28 +143,28 @@
 
 
 
-const div = document.querySelector('div');
-const body = document.querySelector('body');
-const color = ['red', 'green', 'blue', 'purple', 'orange', 'brown', 'yellow'];
+// const div = document.querySelector('div');
+// const body = document.querySelector('body');
+// const color = ['red', 'green', 'blue', 'purple', 'orange', 'brown', 'yellow'];
 
-for (let i = 0; i < color.length; i++) {
-    div.innerHTML += `<button onclick='changeColor(color[${i}])'>${color[i]}</button>`
-}
-
-
-function changeColor(i) {
-    console.log(i);
-    // body.style.backgroundColor = color[i];
-}
-
-function abc(i) {
-    console.log(i)
-}
-
-abc('abdullah')
+// for (let i = 0; i < color.length; i++) {
+//     div.innerHTML += `<button onclick='changeColor(color[${i}])'>${color[i]}</button>`
+// }
 
 
-const num = 5;
-if (num > 4 && num < 6 || num < 10){
-    console.log('abc')
-}
+// function changeColor(i) {
+//     console.log(i);
+//     // body.style.backgroundColor = color[i];
+// }
+
+// function abc(i) {
+//     console.log(i)
+// }
+
+// abc('abdullah')
+
+
+// const num = 5;
+// if (num > 4 && num < 6 || num < 10){
+//     console.log('abc')
+// }
