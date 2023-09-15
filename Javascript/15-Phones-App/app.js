@@ -80,11 +80,17 @@ const cartArr = []
 
 function addToCart(index) {
     // console.log(phones[index]);
-  
+
     // console.log('item included ===>', cartArr.includes(phones[index]));
 
     if (cartArr.includes(phones[index]) === true) {
-        console.log('item alreay mujood haa..');
+        for (let i = 0; i < cartArr.length; i++) {
+            if (cartArr[i] === phones[index]) {
+                console.log('item alreay mujood haa..');
+                cartArr[i].quantity += 1
+                console.log(cartArr);
+            }
+        }
     }
     else {
         phones[index].quantity = 1
