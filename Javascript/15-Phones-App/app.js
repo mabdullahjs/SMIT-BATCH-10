@@ -78,30 +78,70 @@ for (let i = 0; i < phones.length; i++) {
 
 const cartArr = []
 
+// function addToCart(index) {
+//     // console.log(phones[index]);
+
+//     // console.log('item included ===>', cartArr.includes(phones[index]));
+
+//     // if (cartArr.includes(phones[index]) === true) {
+//     //     for (let i = 0; i < cartArr.length; i++) {
+//     //         if (cartArr[i] === phones[index]) {
+//     //             console.log('item alreay mujood haa..');
+//     //             cartArr[i].quantity += 1
+//     //             console.log(cartArr);
+//     //         }
+//     //     }
+//     // }
+//     // else {
+//     //     phones[index].quantity = 1
+//     //     cartArr.push(phones[index]);
+//     //     Swal.fire({
+//     //         position: 'top-end',
+//     //         icon: 'success',
+//     //         title: 'Item Added to cart successfully',
+//     //         showConfirmButton: false,
+//     //         timer: 1500
+//     //     })
+//     // }
+//     // cartArr.push()
+//     // console.log('cartArr ===> ', cartArr);
+// }
+
 function addToCart(index) {
-    // console.log(phones[index]);
-
-    // console.log('item included ===>', cartArr.includes(phones[index]));
-
-    if (cartArr.includes(phones[index]) === true) {
+    // console.log('includes in array ==>', cartArr.includes(phones[index]));
+    if (cartArr.includes(phones[index])) {
+        console.log('mujood ha');
         for (let i = 0; i < cartArr.length; i++) {
             if (cartArr[i] === phones[index]) {
-                console.log('item alreay mujood haa..');
                 cartArr[i].quantity += 1
-                console.log(cartArr);
             }
         }
-    }
-    else {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Item quantity updated successfully',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    } else {
+        console.log('mujood NAHI ha');
         phones[index].quantity = 1
         cartArr.push(phones[index]);
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Item Added to cart successfully',
+            title: 'Item added to cart successfully',
             showConfirmButton: false,
             timer: 1500
         })
     }
-    console.log('cartArr ===> ', cartArr);
+    console.log(cartArr);
+}
+
+
+function goToCart() {
+    const cart = JSON.stringify(cartArr);
+    localStorage.setItem('cartItem' , cart);
+    console.log('cart called');
+    window.location = 'cart.html';
 }

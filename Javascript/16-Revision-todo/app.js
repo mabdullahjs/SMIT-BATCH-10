@@ -190,3 +190,77 @@ const text = document.querySelector('#text-area');
 
 // console.log(names);
 // const names = 'abdullah';
+
+
+
+// console.log(names);
+// var names = 'abdullah';
+
+// names()
+
+// function names (){
+//     console.log('abdullah');
+// }
+
+
+
+
+
+
+// names('Abdullah' , 'khan');
+
+
+// function names (firstName , lastName){
+//     console.log(`hello ${firstName} ${lastName}`);
+// }
+
+
+
+
+
+// console.log('abdullah');
+// console.log('abdullah');
+// console.log('abdullah');
+// console.log('abdullah');
+// console.log('abdullah');
+// console.log('abdullah');
+// console.log('abdullah');
+// console.log('abdullah');
+// console.log('abdullah');
+// console.log('abdullah');
+
+
+
+
+
+
+
+
+
+
+// for (let i = 0; i < 10; i++) {
+//     console.log('bhar wala loop ' + i);
+//     for (let j = 0; j < 10; j++) {
+//         console.log('undar wala loop ' + j);
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
