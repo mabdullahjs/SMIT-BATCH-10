@@ -49,17 +49,60 @@
 // parent.appendChild(div)
 
 
-const parent = document.querySelector('.parent');
-const div = document.createElement('DIV');
-div.className = 'main-head'
-div.style.backgroundColor = 'red'
-div.style.padding = '100px'
-const text = document.createTextNode('create div using dom methods');
-div.appendChild(text);
-console.log(div);
-parent.appendChild(div);
+// const parent = document.querySelector('.parent');
+// const div = document.createElement('DIV');
+// div.className = 'main-head'
+// div.style.backgroundColor = 'red'
+// div.style.padding = '100px'
+// const text = document.createTextNode('create div using dom methods');
+// div.appendChild(text);
+// console.log(div);
+// parent.appendChild(div);
 
 
+
+
+
+
+const input = document.querySelector('#text');
+const ul = document.querySelector('#list');
+
+
+function createElement (userElement , userText){
+    const element = document.createElement(userElement);
+    const textNode = document.createTextNode(userText);
+    element.appendChild(textNode);
+    return element
+}
+
+function addTodo (e){
+    e.preventDefault();
+    // const li = document.createElement('LI');
+    // const text = document.createTextNode(input.value);
+    // li.appendChild(text);
+    // ul.appendChild(li)
+    const li = createElement('LI' , input.value);
+    const editBtn = createElement('BUTTON' , 'edit');
+    editBtn.setAttribute('onclick' , 'editTodo(this)')
+    const deleteBtn = createElement('BUTTON' , 'delete');
+    deleteBtn.setAttribute('onclick' , 'deleteTodo(this)')
+    li.appendChild(editBtn);
+    li.appendChild(deleteBtn);
+
+    ul.appendChild(li);
+    input.value = ''
+}
+
+
+
+function deleteTodo(element){
+    // console.log(element.parentNode);
+    ul.removeChild(element.parentNode)
+}
+function editTodo(element){
+    const newValue = prompt('enter new value');
+    element.parentNode.childNodes[0].nodeValue = newValue
+}
 
 
 

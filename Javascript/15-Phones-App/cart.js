@@ -54,3 +54,6 @@ function deleteItem(index){
     cartArr.splice(index , 1);
     renderCart()
 }
+
+
+
