@@ -55,6 +55,14 @@ const phones = [
         camera: '8 megapixel',
         price: 15000
     },
+    {
+        brand: 'Abdullah',
+        model: 's50',
+        ram: 50,
+        rom: 1024,
+        camera: '60 megapixel',
+        price: 300000
+    },
 
 ]
 const div = document.querySelector('.containers');
@@ -76,7 +84,10 @@ for (let i = 0; i < phones.length; i++) {
 
 }
 
-const cartArr = []
+const cartData = localStorage.getItem('cartItem');
+const jsonData = JSON.parse(cartData);
+console.log(jsonData);
+const cartArr = [...jsonData]
 
 // function addToCart(index) {
 //     // console.log(phones[index]);
