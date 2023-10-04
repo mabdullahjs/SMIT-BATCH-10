@@ -6,7 +6,7 @@ function goToHome() {
 
 const data = localStorage.getItem('cartItem');
 const cartArr = JSON.parse(data);
-console.log(cartArr);
+//console.log(cartArr);
 
 const div = document.querySelector('#main-div');
 const totalAmounts = document.querySelector('.total-amount');
@@ -46,13 +46,13 @@ renderCart()
 
 function increaseQuantity (index){
     div.innerHTML = ''
-    console.log(cartArr[index])
+    //console.log(cartArr[index])
     cartArr[index].quantity += 1
     renderCart()
 }
 function decreaseQuantity (index){
     div.innerHTML = ''
-    console.log(cartArr[index])
+    //console.log(cartArr[index])
     cartArr[index].quantity -= 1
     renderCart()
     if(cartArr[index].quantity === 0){

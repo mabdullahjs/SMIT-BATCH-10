@@ -69,7 +69,7 @@ const div = document.querySelector('.containers');
 
 
 for (let i = 0; i < phones.length; i++) {
-    // console.log(phones[i]);
+    // //console.log(phones[i]);
     div.innerHTML += `
     <div class="p-[2rem] border-black-200 border-solid border-2 rounded-lg drop-shadow-2xl">
             <p><span class="font-bold text-lg">brand:</span> ${phones[i].brand}</p>
@@ -86,42 +86,25 @@ for (let i = 0; i < phones.length; i++) {
 
 const cartData = localStorage.getItem('cartItem');
 const jsonData = JSON.parse(cartData);
-console.log(jsonData);
-const cartArr = [...jsonData]
 
-// function addToCart(index) {
-//     // console.log(phones[index]);
+let cartArr;
+if(Array.isArray(jsonData)){
+    cartArr = [...jsonData]
 
-//     // console.log('item included ===>', cartArr.includes(phones[index]));
+}else{
+    cartArr = []
+}
 
-//     // if (cartArr.includes(phones[index]) === true) {
-//     //     for (let i = 0; i < cartArr.length; i++) {
-//     //         if (cartArr[i] === phones[index]) {
-//     //             console.log('item alreay mujood haa..');
-//     //             cartArr[i].quantity += 1
-//     //             console.log(cartArr);
-//     //         }
-//     //     }
-//     // }
-//     // else {
-//     //     phones[index].quantity = 1
-//     //     cartArr.push(phones[index]);
-//     //     Swal.fire({
-//     //         position: 'top-end',
-//     //         icon: 'success',
-//     //         title: 'Item Added to cart successfully',
-//     //         showConfirmButton: false,
-//     //         timer: 1500
-//     //     })
-//     // }
-//     // cartArr.push()
-//     // console.log('cartArr ===> ', cartArr);
-// }
+
+
+
+// add to cart function
+
 
 function addToCart(index) {
-    // console.log('includes in array ==>', cartArr.includes(phones[index]));
+    // //console.log('includes in array ==>', cartArr.includes(phones[index]));
     if (cartArr.includes(phones[index])) {
-        console.log('mujood ha');
+        //console.log('mujood ha');
         for (let i = 0; i < cartArr.length; i++) {
             if (cartArr[i] === phones[index]) {
                 cartArr[i].quantity += 1
@@ -135,7 +118,7 @@ function addToCart(index) {
             timer: 1500
         })
     } else {
-        console.log('mujood NAHI ha');
+        //console.log('mujood NAHI ha');
         phones[index].quantity = 1
         cartArr.push(phones[index]);
         Swal.fire({
@@ -146,13 +129,19 @@ function addToCart(index) {
             timer: 1500
         })
     }
-    console.log(cartArr);
+    //console.log(cartArr);
 }
 
+
+
+
+
+
+//goto cart function
 
 function goToCart() {
     const cart = JSON.stringify(cartArr);
     localStorage.setItem('cartItem' , cart);
-    console.log('cart called');
+    //console.log('cart called');
     window.location = 'cart.html';
 }
