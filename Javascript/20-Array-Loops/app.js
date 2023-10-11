@@ -229,7 +229,7 @@
 
 
 
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // const mappedArr = arr.map(item => item + 10).filter( item => item > 15).map(item => item * 2);
 
@@ -238,16 +238,6 @@ const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // const mappedArr = arr.map( item => item + 10).filter( item => item % 2 === 0).filter( item => item > 15);
 // console.log(mappedArr);
-
-
-
-
-//reduce
-//set timeout
-//set interval
-
-
-
 
 
 
@@ -304,6 +294,68 @@ const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 
 
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+
+// const mappedArr = arr.map(item => item + 10).filter( item => item > 15).map(item => item * 2);
+
+
+
+
+
+// const mappedArr = arr.map(function (item) {
+//     return item + 10
+// }).filter(function (item){
+//     return item > 15
+// }).map((item)=>{
+//     return item - 10
+// }).filter((item)=> item < 8) 
+
+
+
+
+
+// const mappedArr = arr.map(item => item + 10)
+
+
+// console.log(mappedArr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+
+// const array1 = [1, 2, 3, 4];
+
+
+// const summed = array1.reduce((shurwValue , arrWaliValue)=>{
+//     console.log('initialValue ===>' , shurwValue , 'currentValue ===>' , arrWaliValue)
+//     return shurwValue + arrWaliValue
+// } , 0)
+
+
+// console.log(summed);
 
 
 
@@ -337,6 +389,90 @@ const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 
 
+// const productCart = [
+//     { 
+//         productName: "Product 1", 
+//         price: 10.99 
+//     },
+//     { 
+//         productName: "Product 2", 
+//         price: 19.99 
+//     },
+//     { 
+//         productName: "Product 3", 
+//         price: 8.50 
+//     },
+//     { 
+//         productName: "Product 4", 
+//         price: 12.00 
+//     },
+//     { 
+//         productName: "Product 5", 
+//         price: 15.75 
+//     },
+//     { 
+//         productName: "Product 6", 
+//         price: 6.99 
+//     },
+//     { 
+//         productName: "Product 7", 
+//         price: 24.50 
+//     },
+//     { 
+//         productName: "Product 8", 
+//         price: 17.25 
+//     },
+//     { 
+//         productName: "Product 9", 
+//         price: 11.49 
+//     },
+//     { 
+//         productName: "Product 10", 
+//         price: 14.99 
+//     }
+// ];
+
+
+
+// const totalPrice = productCart.reduce((accumulator , currentValue)=>{
+//     return accumulator + currentValue.price
+// } , 0)
+
+// console.log(totalPrice);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//setTimeOut
+//setIntervalOut
+
+
+
+
+// const div = document.querySelector('.container')
+// setTimeout(() => {
+    //     console.log(div);
+    //     div.style.backgroundColor = 'green'
+// }, 2000)
+
+
+// const showStop = setInterval(() => {
+    //    console.log('hello world');
+// }, 1000)
+
+
+
+// clearInterval(showStop)
 
 
 
@@ -361,10 +497,43 @@ const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 
 
+//stopwatch
+
+const div = document.querySelector('.container')
+const start = document.querySelector('.start');
+const stop = document.querySelector('.stop');
+const reset = document.querySelector('.reset');
 
 
 
 
+
+
+
+let seconds = 0
+let interval;
+start.addEventListener('click' , ()=>{
+    interval = setInterval(() => {
+        seconds += 1;
+        div.innerHTML = seconds
+    }, 1000);
+    start.disabled = true
+})
+
+
+stop.addEventListener('click' , ()=>{
+    clearInterval(interval)
+    start.disabled = false
+    
+})
+
+
+reset.addEventListener('click' , ()=>{
+    clearInterval(interval);
+    seconds = 0
+    div.innerHTML = 0
+    start.disabled = false
+})
 
 
 
