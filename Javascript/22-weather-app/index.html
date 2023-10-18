@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0f172a]">
+    <h1 class="text-center text-[#38bdf8] text-4xl mt-5">Weather App</h1>
+    <form class="px-5 form">
+        <div class="text-center mt-5">
+            <input type="text" class="w-[60%] rounded bg-[#0f172a] text-white border-2 border-inherit p-3 " id="city" placeholder="enter city name">
+        </div> <br>
+        <div class="text-center mt-3">
+            <button type="submit" class="bg-[#38bdf8]  text-white px-4 py-2 rounded">Search</button>
+        </div>
+    </form>
+
+    <div class="mt-5 text-center text-white hidden" id="loading">
+        Loading...
+    </div>
+
+    <div class="weather">
+        
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
