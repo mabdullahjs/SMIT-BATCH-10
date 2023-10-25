@@ -5,9 +5,8 @@
 - [x] HTML
 - [x] CSS
 - [x] bootstrap/tailwind
-- [ ] CSS HACKATHON
-- [ ] JAVASCRIPT
-- [ ] GITHUB/GIT
+- [x] JAVASCRIPT
+- [x] GITHUB/GIT
 - [ ] FIREBASE
 - [ ] JS HACKATHON
 - [ ] REACTJS
@@ -15,5 +14,3 @@
 - [ ] mongodb
 - [ ] REACT NATIVE
 - [ ] Final HACKATHON
-
-<!--shehzad-->
