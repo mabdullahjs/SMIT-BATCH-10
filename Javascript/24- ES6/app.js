@@ -81,17 +81,97 @@
 // console.log(arr2);
 
 
-function sumVal(...num) {
-    console.log(num);
-}
-sumVal(1,2,3,4,5,6,7,8,9);
-
-
+// function sumVal(...num) {
+//     console.log(num);
+// }
+// sumVal(1,2,3,4,5,6,7,8,9);
 
 
 // object destructuring
+
+let obj = {
+    name: 'abdullah',
+    email: 'mabdullah2037@gmail.com',
+    age: 20
+}
+
+//function ({name}){
+//     name
+// }
+
+// let {name:n , age} = obj
+// console.log(age);
+
+
+//array
+// const arr = [1, 2, 3, 4, 5, 6, 8, ['abdullah', 'abc', true]];
+// const [name , age , , , , , , [arr1 , b]] = arr
+// console.log(b);
+
+
+
+
 // lexical scoping
+
+// function outerFunction(){
+//     let a = 10;
+//     console.log(betaKiJaidaad);
+//     function innerFunction(){
+//         let betaKiJaidaad = 2
+//         console.log(a);
+//     }
+//     function innerFunction2(){
+//         console.log(betaKiJaidaad);
+//         console.log(a);
+//     }
+//     innerFunction()
+//     innerFunction2()
+// }
+
+// outerFunction()
+
+
+
+
 //modulus
+
+function greetUser(name) {
+    return `hello ${name}`;
+}
+function greetUser1(name) {
+    return `hello ${name}`;
+}
+function greetUser2(name) {
+    return `hello ${name}`;
+}
+function greetUser3(name) {
+    return `hello ${name}`;
+}
+function greetUser4(name) {
+    return `hello ${name}`;
+}
+
+
+let names = 'abdullah';
+
+export { greetUser, greetUser1, greetUser2, greetUser3, greetUser4 }
+
+
+export default names
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
