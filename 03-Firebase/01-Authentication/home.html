@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>Home</h1>
+    <button class="btn">logout</button>
+
+    <script type="module">
+        import { onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+        import { auth } from './config.js';
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user;
+                console.log(uid);
+            } else {
+                window.location = 'login.html'
+            }
+        });
+
+        const btn = document.querySelector('.btn')
+        btn.addEventListener('click', () => {
+            signOut(auth).then(() => {
+                console.log('user logout successfully');
+                window.location = 'login.html'
+            }).catch((error) => {
+                console.log('error ===>' , error);
+            });
+        })
+
+
+    </script>
+</body>
+
+</html>
