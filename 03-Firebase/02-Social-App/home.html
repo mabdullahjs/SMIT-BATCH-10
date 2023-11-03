@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body>
-    <h1>Home</h1>
-    <button id="logout-btn">Logout</button>
+</head>
 
+<body>
+    <div style="display: flex; justify-content: space-between; align-items: center;" class="container">
+        <h1>Home</h1>
+        <button id="logout-btn">Logout</button>
+    </div>
+
+    <form id="form" class="text-center mt-5">
+        <input type="text" placeholder="title" id="title">
+        <input type="text" placeholder="description" id="description">
+        <button type="submit">submit</button>
+    </form>
+
+    <div id="card" class="container mt-5">
+        
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <script type="module" src="home.js"></script>
 </body>
+
 </html>
