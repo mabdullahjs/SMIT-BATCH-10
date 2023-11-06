@@ -1,6 +1,12 @@
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 import { auth, db } from "./config.js";
-import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
+import { collection, addDoc, getDocs, Timestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
+
+
+const form = document.querySelector('#form');
+const title = document.querySelector('#title');
+const description = document.querySelector('#description');
+const card = document.querySelector('#card');
 
 
 //user login or logout function
@@ -30,17 +36,15 @@ logout.addEventListener('click', () => {
 
 
 
+//get data from firestore
 
-const form = document.querySelector('#form');
-const title = document.querySelector('#title');
-const description = document.querySelector('#description');
-const card = document.querySelector('#card');
-
-const arr = []
+let arr = []
 async function getDataFromFirestore() {
-    const querySnapshot = await getDocs(collection(db, "posts"));
+    arr.length = 0;
+    const q = query(collection(db, "posts"), orderBy('postDate', 'desc'));
+    const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-        arr.push(doc.data());
+        arr.push({ ...doc.data(), docId: doc.id });
     });
     console.log(arr);
     arr.map((item) => {
@@ -49,13 +53,32 @@ async function getDataFromFirestore() {
         <div class="card-body">
             <p><span class="h4">Title:</span>${item.title}</p>
             <p><span class="h4">Description:</span>${item.description}</p>
+            <button type="button" id="delete" class="btn btn-danger">Delete</button>
+            <button type="button" id="update" class="btn btn-info">Edit</button>
         </div>
     </div>`
     })
+
+    const del = document.querySelectorAll('#delete');
+    const upd = document.querySelectorAll('#update');
+
+    del.forEach((btn , index) => {
+        btn.addEventListener('click', () => {
+            console.log('delete called' , arr[index]);
+        })
+    })
+    upd.forEach((btn , index) => {
+        btn.addEventListener('click', () => {
+            console.log('update called' , arr[index]);
+        })
+    })
+
+
 }
 getDataFromFirestore()
 
 
+//post data on firestore
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -64,7 +87,9 @@ form.addEventListener('submit', async (event) => {
         const docRef = await addDoc(collection(db, "posts"), {
             title: title.value,
             description: description.value,
-            uid: auth.currentUser.uid
+            uid: auth.currentUser.uid,
+            postDate: Timestamp.fromDate(new Date()),
+            like: false
         });
         console.log("Document written with ID: ", docRef.id);
         getDataFromFirestore()
