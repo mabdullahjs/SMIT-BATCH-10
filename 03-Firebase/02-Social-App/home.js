@@ -39,14 +39,9 @@ logout.addEventListener('click', () => {
 //get data from firestore
 
 let arr = []
-async function getDataFromFirestore() {
-    arr.length = 0;
-    const q = query(collection(db, "posts"), orderBy('postDate', 'desc'));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-        arr.push({ ...doc.data(), docId: doc.id });
-    });
-    console.log(arr);
+
+function renderPost (){
+    card.innerHTML = ''
     arr.map((item) => {
         card.innerHTML += `
         <div class="card mt-2">
@@ -72,6 +67,17 @@ async function getDataFromFirestore() {
             console.log('update called' , arr[index]);
         })
     })
+}
+
+async function getDataFromFirestore() {
+    arr.length = 0;
+    const q = query(collection(db, "posts"), orderBy('postDate', 'desc'));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        arr.push({ ...doc.data(), docId: doc.id });
+    });
+    console.log(arr);
+    renderPost();
 
 
 }
@@ -82,17 +88,20 @@ getDataFromFirestore()
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    card.innerHTML = ''
     try {
-        const docRef = await addDoc(collection(db, "posts"), {
+        const postObj = {
             title: title.value,
             description: description.value,
             uid: auth.currentUser.uid,
             postDate: Timestamp.fromDate(new Date()),
             like: false
-        });
+        }
+        const docRef = await addDoc(collection(db, "posts"), postObj);
         console.log("Document written with ID: ", docRef.id);
-        getDataFromFirestore()
+        postObj.docId = docRef.id;
+        arr = [postObj , ...arr]
+        console.log(arr);
+        renderPost();
     } catch (e) {
         console.error("Error adding document: ", e);
     }
