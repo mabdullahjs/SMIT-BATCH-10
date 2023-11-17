@@ -7,7 +7,7 @@
 - [x] bootstrap/tailwind
 - [x] JAVASCRIPT
 - [x] GITHUB/GIT
-- [ ] FIREBASE
+- [x] FIREBASE
 - [ ] JS HACKATHON
 - [ ] REACTJS
 - [ ] nodejs expressjs
