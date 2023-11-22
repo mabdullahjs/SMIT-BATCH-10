@@ -12,17 +12,17 @@ const username = document.querySelector('#username');
 
 
 //user login or logout function
-
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         const uid = user.uid;
         const q = query(collection(db, "users"), where("uid", "==", uid));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
-            console.log(doc.data());
+            // console.log(doc.data());
             username.innerHTML = doc.data().name
             profileImage.src = doc.data().profileUrl
         });
+        getDataFromFirestore(user.uid)
     } else {
         window.location = 'index.html'
     }
@@ -90,9 +90,11 @@ function renderPost() {
     })
 }
 
-async function getDataFromFirestore() {
+async function getDataFromFirestore(uid) {
     arr.length = 0;
-    const q = query(collection(db, "posts"), orderBy('postDate', 'desc'));
+    const q = await query(collection(db, "posts"), orderBy('postDate', 'desc') , where('uid' , '==' , uid));
+    // const userUid = await auth.currentUser
+    console.log(uid);
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
         console.log(doc.data());
@@ -101,7 +103,7 @@ async function getDataFromFirestore() {
     console.log(arr);
     renderPost();
 }
-getDataFromFirestore()
+
 
 
 //post data on firestore
