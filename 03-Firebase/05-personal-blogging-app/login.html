@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogging App</title>
+    <link rel="stylesheet" href="output.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.8/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div>
+        <!-- navbar started -->
+        <div class="navbar bg-[#7749F8]">
+            <div class="navbar-start">
+                <a class="text-xl text-white ml-20">Personal Blogging App</a>
+            </div>
+
+            <div class="navbar-end">
+                <!-- <a class="btn bg-transparent border-none text-white mr-20">Signup</a> -->
+                <a href="./index.html" class="bg-transparent border-none text-white mr-20">Signup</a>
+            </div>
+        </div>
+        <!-- navbar ended -->
+
+
+        <!-- header started -->
+        <div class="header bg-[#fff] p-7">
+            <header class="ml-20 text-4xl font-bold">Login</header>
+        </div>
+        <!-- header ended -->
+
+        <div class="bg-gray-100 min-h-screen flex items-center justify-center">
+            <div class="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
+                <form id="form">
+                    <div class="mb-4 flex justify-center">
+                        <input type="email" placeholder="Email"
+                            class="w-3/4 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 hover:border-gray-300 transition duration-300" id="email">
+                    </div>
+                    <div class="mb-4 flex justify-center">
+                        <input type="password" placeholder="Password"
+                            class="w-3/4 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 hover:border-gray-300 transition duration-300" id="password">
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="submit" class="bg-[#7749F8] text-white py-2 px-4 rounded-md">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <dialog id="my_modal_1" class="modal">
+            <div class="modal-box">
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4" id="modal-message">Password are not same</p>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+
+
+    </div>
+
+    <script type="module" src="./script/login.js"></script>
+</body>
+
+</html>

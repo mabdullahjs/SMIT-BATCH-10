@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogging App</title>
+    <link rel="stylesheet" href="output.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.8/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div>
+        <!-- navbar started -->
+        <div class="navbar bg-[#7749F8]">
+            <div class="navbar-start">
+                <a class=" text-xl text-white ml-20">Perosnol Blogging App</a>
+            </div>
+
+            <div class="navbar-end">
+                <a class=" bg-transparent border-none text-white mr-20 cursor-pointer" id="logout">Logout</a>
+            </div>
+        </div>
+        <!-- navbar ended -->
+
+
+        <!-- header started -->
+        <div class="header bg-[#fff] p-7">
+            <header class="ml-20 text-4xl font-bold">Profile</header>
+        </div>
+        <!-- header ended -->
+
+        <div class="bg-gray-100 min-h-screen flex items-center justify-center">
+            <div class="bg-white p-8 rounded-lg shadow-md max-w-xl w-full">
+                <form>
+                    <div class="mb-4 text-center">
+                        <img src="./assets/download.jfif" alt="inzamam malik" class="rounded-xl w-40 h-40 mx-auto mb-4">
+                    </div>
+                    <h2 class="font-bold text-xl text-left mb-2">Inzamam Malik</h2>
+                    <h2 class="font-bold text-xl text-left mb-6">Change Password</h2>
+                    <div class="mb-4">
+                        <input type="password" placeholder="Old password" class="w-1/2 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 hover:border-gray-300 transition duration-300">
+                    </div>
+                    <div class="mb-4">
+                        <input type="password" placeholder="New Password" class="w-1/2 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 hover:border-gray-300 transition duration-300">
+                    </div>
+                    <div class="mb-6">
+                        <input type="password" placeholder="Repeat Password" class="w-1/2 px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 hover:border-gray-300 transition duration-300">
+                    </div>
+                    <div class="flex justify-start">
+                        <button type="submit" class="bg-[#7749F8] text-white py-2 px-3 rounded-md">Update Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script type="module" src="./script/profile.js"></script>
+</body>
+
+</html>
