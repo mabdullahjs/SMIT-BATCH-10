@@ -8,7 +8,7 @@ const password = document.querySelector('#password');
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        window.location = 'profile.html'
+        window.location = 'home.html'
         return
     }
 });
