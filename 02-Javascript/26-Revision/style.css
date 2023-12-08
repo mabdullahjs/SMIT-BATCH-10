@@ -1,0 +1,13 @@
+body{
+    background-color: red;
+    color: white;
+}
+
+
+@media(min-width:300px){
+    body{
+        background-color: black;
+    }
+    
+}
+
