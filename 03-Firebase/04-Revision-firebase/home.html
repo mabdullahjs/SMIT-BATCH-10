@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
+
 <body>
-    <h1>Home</h1>
-    <button id="logout">logout</button>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>Home</h1>
+        <button id="logout">logout</button>
+    </div>
+    <form id="form">
+        <input type="text" placeholder="title" id="title">
+        <input type="text" placeholder="description" id="description">
+        <button type="submit">Add Todo</button>
+    </form>
+    <div class="container">
+        
+    </div>
 
     <script type="module" src="home.js"></script>
 </body>
+
 </html>
