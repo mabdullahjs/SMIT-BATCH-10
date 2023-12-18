@@ -1,12 +1,15 @@
 import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { auth, db } from "./config.js";
-import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { collection, addDoc, getDocs, query, where, Timestamp, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 //check user is login or not
+let userUid;
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
     console.log(uid);
+    userUid = uid
+    renderTodo(uid)
   } else {
     window.location = 'login.html'
   }
@@ -20,22 +23,23 @@ const div = document.querySelector('.container');
 
 
 // get data from firestore
-const arr = [];
-async function renderTodo(){
-  const querySnapshot = await getDocs(collection(db, "todos"));
+let arr = [];
+async function renderTodo(uid) {
+  const q = query(collection(db, "todos"), where("uid", "==", uid) , orderBy('timestamp' , 'desc'));
+  const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     arr.push(doc.data());
   });
+  div.innerHTML = ''
   console.log(arr);
-  arr.map((item)=>{
-    div.innerHTML +=`
+  arr.map((item) => {
+    div.innerHTML += `
     <h1>Title: ${item.title}</h1>
     <h1>Description: ${item.description}</h1>
     <button>delete</button>
     `
   })
 }
-renderTodo()
 
 
 
@@ -47,7 +51,8 @@ form.addEventListener('submit', async (event) => {
     const docRef = await addDoc(collection(db, "todos"), {
       title: title.value,
       description: desc.value,
-      uid: auth.currentUser.uid
+      uid: auth.currentUser.uid,
+      timestamp: Timestamp.fromDate(new Date()),
     });
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
