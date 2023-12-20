@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { auth, db } from "./config.js";
-import { collection, addDoc , getDocs  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { auth, db, storage } from "./config.js";
+import { collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js'
 
 const form = document.querySelector('form');
 const email = document.querySelector('#email');
@@ -30,6 +31,26 @@ form.addEventListener('submit', (event) => {
             const errorMessage = error.message;
             console.log(errorMessage);
         });
+})
 
 
+
+//firebase storage
+
+const file = document.querySelector('#file');
+const btn = document.querySelector('#btn');
+
+btn.addEventListener('click', () => {
+    const files = file.files[0];
+    console.log(files);
+    const storageRef = ref(storage, email.value);
+    uploadBytes(storageRef, files).then(() => {
+        getDownloadURL(storageRef).then((url) => {
+            console.log(url);
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }).catch((err)=>{
+        console.log(err);
+    })
 })
