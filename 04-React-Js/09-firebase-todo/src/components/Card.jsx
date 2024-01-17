@@ -5,6 +5,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useState } from 'react';
+import { useRef } from 'react';
 
 const bull = (
   <Box
@@ -15,18 +17,33 @@ const bull = (
   </Box>
 );
 
-export default function BasicCard({title , editTodo}) {
+export default function BasicCard({ title, editTodo, deleteTodo, index }) {
+  const [showTodo, setShowTodo] = useState(true);
+  const editedValue = useRef();
+
+  const editedTodoFunc = ()=>{
+    editTodo(index , editedValue.current.value);
+    setShowTodo(true)
+  }
   return (
     <Card sx={{ minWidth: 275 }} className='mt-2'>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {title}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Delete</Button>
-        <Button size="small" onClick={editTodo}>Edit</Button>
-      </CardActions>
+      {showTodo ?
+        <div>
+          <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+              {title}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" onClick={deleteTodo}>Delete</Button>
+            <Button size="small" onClick={()=> setShowTodo(false)}>Edit</Button>
+          </CardActions>
+        </div> : <div>
+          <input type="text" placeholder='edited value' ref={editedValue} />
+          <button onClick={editedTodoFunc}>save</button>
+        </div> 
+    }
+
     </Card>
   );
 }

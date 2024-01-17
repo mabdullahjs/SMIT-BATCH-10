@@ -4,30 +4,46 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button'
 import BasicCard from '../../components/Card';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from '../../config/firebase/Firebaseconfig';
 import Typography from '@mui/material/Typography'
 
 
 const Home = () => {
 
-  useEffect(()=>{
+  useEffect(() => {
     // async function hello (){
     // }
 
     // hello()
 
-  } , [])
+  }, [])
 
   //state 
   const [data, setData] = useState([]);
   //form
   const todo = useRef()
 
+  //useEffect
+  useEffect(() => {
+    async function getDataFromFirestore() {
+      const querySnapshot = await getDocs(collection(db, "todo"));
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+        const obj = {
+          docId: doc.id,
+          ...doc.data()
+        }
+        console.log(obj);
+        data.push(obj);
+        setData([...data]);
+      });
+    }
+    getDataFromFirestore()
 
-  const editTodo = (item, index) => {
-    console.log('todo edited', index, item);
-  }
+  }, [])
+
+
   //add todo function
   const addTodo = async (event) => {
     event.preventDefault();
@@ -46,6 +62,29 @@ const Home = () => {
     }
 
   }
+
+  const editTodo = async (index, editedValue) => {
+    console.log(`todo index is ${index} and value is ${editedValue}`);
+    const updatedTodo = doc(db, "todo", data[index].docId);
+    updateDoc(updatedTodo, {
+      todo: editedValue
+    }).then(()=>{
+      data.splice(index, 1, {
+        todo: editedValue
+      })
+      setData([...data]);
+    })
+
+
+  }
+
+  const deleteTodo = async (index) => {
+    console.log('todo deleted', index);
+    await deleteDoc(doc(db, "todo", data[index].docId));
+    data.splice(index, 1);
+    setData([...data]);
+  }
+
   return (
     <Box className='d-flex justify-content-center flex-column align-items-center gap-5'>
       <form onSubmit={addTodo} className='d-flex justify-content-center mt-5 flex-column w-25 gap-3'>
@@ -54,8 +93,7 @@ const Home = () => {
       </form>
       <Box>
         {data.length > 0 ? data.map((item, index) => {
-          console.log(item);
-          return <BasicCard key={index} title={item.todo} editTodo={() => editTodo(item , index)} />
+          return <BasicCard key={index} title={item.todo} editTodo={editTodo} deleteTodo={() => deleteTodo(index)} index={index} />
         }) : <Typography variant="h5" color="initial">No item found</Typography>}
       </Box>
     </Box>
