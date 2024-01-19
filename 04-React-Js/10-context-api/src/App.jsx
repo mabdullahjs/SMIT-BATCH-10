@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
 import Card from './Card';
+import Navbar from './components/Navbar';
+import Check from './components/Check';
 
 const App = () => {
 
@@ -9,6 +11,8 @@ const App = () => {
   const addTodo = (event) => {
     event.preventDefault();
     console.log(todoVal.current.value);
+    //data firebase ma bhijwadonga
+    // .then(state ma data save krwadonga!) .catch
     data.push(todoVal.current.value);
     setData([...data]);
     todoVal.current.value = ''
@@ -28,6 +32,17 @@ const App = () => {
   }
   return (
     <>
+    <Navbar/>
+    {/* <Check title='hello world'/>
+    <Check>
+      <h1>hello world</h1>
+      <ul>
+        <li>abc</li>
+        <li>abcef</li>
+        <li>abcefgh</li>
+      </ul>
+    </Check> */}
+
       <h1>Todo App</h1>
       <form onSubmit={addTodo}>
         <input type="text" ref={todoVal} placeholder='enter todo' />

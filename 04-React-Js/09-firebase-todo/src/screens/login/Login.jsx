@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { TextField, Button, Box, CircularProgress, Typography } from '@mui/material'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../config/firebase/Firebaseconfig';
 import { useNavigate } from 'react-router-dom'
+import UserContext from '../../context/user/UserContext';
 
 
 const Login = () => {
@@ -16,6 +17,9 @@ const Login = () => {
   //navigate
   const navigate = useNavigate()
 
+  //use context
+  const {setIsUser} = useContext(UserContext);
+
   //login 
   const login = (event) => {
     event.preventDefault();
@@ -23,7 +27,9 @@ const Login = () => {
     const registerPassword = password.current.value;
     signInWithEmailAndPassword(auth, registerEmail, registerPassword)
       .then((userCredential) => {
+        setIsUser(true);
         navigate('/')
+
       })
       .catch((error) => {
         const errorCode = error.code;
