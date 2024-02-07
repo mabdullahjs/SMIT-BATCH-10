@@ -1,10 +1,12 @@
-import React from 'react'
-import Routerconfig from './config/router/Routerconfig'
+import React from "react";
+import Routerconfig from "./config/router/Routerconfig";
 
 const App = () => {
   return (
-    <Routerconfig />
-  )
-}
+    <>
+      <Routerconfig />
+    </>
+  );
+};
 
-export default App
+export default App;

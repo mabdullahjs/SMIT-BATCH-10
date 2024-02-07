@@ -29,10 +29,10 @@ import {
       createUserWithEmailAndPassword(auth, obj.email, obj.password)
         .then(async (res) => {
           resolve((obj.uid = res.user.uid));
+          delete obj.password;
           const dbObj = {
-            email: obj.email,
-            uid: res.user.uid,
-            type: obj.type
+            ...obj,
+            uid: res.user.uid
           }
           await addDoc(collection(db, "users"), dbObj)
             .then((res) => {
@@ -56,6 +56,7 @@ import {
           const q = query(
             collection(db, "users"),
             where("uid", "==", auth.currentUser.uid)
+            
           );
           const querySnapshot = await getDocs(q);
           querySnapshot.forEach((doc) => {
@@ -143,6 +144,19 @@ import {
       reject("error occured")
     })
   }
+
+  // const files = profile.files[0]
+  const addImageToStorage = (files , email)=>{
+    return new Promise((resolve , reject)=>{
+      const storageRef = ref(storage, email.value);
+      uploadBytes(storageRef, files).then(() => {
+          getDownloadURL(storageRef).then((url) => {
+              console.log(url);
+              resolve(url);
+              reject('Error found');
+          });
+      });
+    })
+  }
   
-  
-  export { auth, db, signUpUser, loginUser, signOutUser, sendData, getData, getAllData, deleteDocument, updateDocument };
+  export { auth, db, signUpUser, loginUser, signOutUser, sendData, getData, getAllData, deleteDocument, updateDocument, addImageToStorage };
