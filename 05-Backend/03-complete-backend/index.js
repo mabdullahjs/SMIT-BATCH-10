@@ -2,6 +2,7 @@ const express = require('express')
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
+const { getStudent, addStudent, getSingleStudent, deleteStudent, updateStudent } = require('./controllers/studentcontroller');
 require('dotenv').config()
 
 const port = process.env.PORT
@@ -13,12 +14,15 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
-})
-app.get('/login' , (req , res)=>{
-  res.send('Login user');
-})
+});
 
-const connectDB = async ()=>{
+app.get('/api/v1/students', getStudent);
+app.get('/api/v1/students/:id', getSingleStudent);
+app.post('/api/v1/students', addStudent);
+app.delete('/api/v1/students/:id', deleteStudent);
+app.put('/api/v1/students/:id', updateStudent);
+
+const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI);
     console.log('DATABASE CONNECTED');
@@ -26,8 +30,8 @@ const connectDB = async ()=>{
     console.log(error);
   }
 }
-connectDB().then(()=>{
+connectDB().then(() => {
   app.listen(process.env.PORT)
-}).catch((err)=>{
+}).catch((err) => {
   console.log(err)
 })
